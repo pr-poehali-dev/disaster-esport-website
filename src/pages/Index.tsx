@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { toast } from '@/hooks/use-toast';
+import { Particles } from '@/components/Particles';
 
 interface Player {
   nickname: string;
@@ -184,8 +185,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20 hexagon-pattern">
-      <header className="border-b border-primary/30 backdrop-blur-sm sticky top-0 z-50 glow-border bg-background/80">
+    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20 hexagon-pattern relative">
+      <Particles />
+      <div className="grid-scan fixed inset-0 pointer-events-none z-0" />
+      <header className="border-b border-primary/30 backdrop-blur-sm sticky top-0 z-50 glow-border bg-background/80 scan-line">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -298,7 +301,7 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-12 space-y-16">
-        <section className="relative overflow-hidden rounded-lg border border-primary/40 glow-border">
+        <section className="relative overflow-hidden rounded-lg border border-primary/40 glow-border scan-line hologram">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary/20 to-accent/15" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(192,132,252,0.1),transparent_70%)]" />
           <div className="relative z-10 p-8 md:p-16 text-center space-y-6">
@@ -344,7 +347,7 @@ const Index = () => {
 
             <TabsContent value="all" className="space-y-4">
               {tournaments.map((tournament) => (
-                <Card key={tournament.id} className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all clip-corner">
+                <Card key={tournament.id} className="border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 transition-all clip-corner hologram">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div className="space-y-2">
@@ -382,7 +385,7 @@ const Index = () => {
 
             <TabsContent value="live" className="space-y-4">
               {tournaments.filter(t => t.status === 'live').map((tournament) => (
-                <Card key={tournament.id} className="border-primary/50 bg-gradient-to-br from-card/80 to-primary/5 backdrop-blur-sm clip-corner animate-pulse-glow">
+                <Card key={tournament.id} className="border-primary/50 bg-gradient-to-br from-card/80 to-primary/5 backdrop-blur-sm clip-corner animate-pulse-glow scan-line">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div className="space-y-2">
@@ -417,7 +420,7 @@ const Index = () => {
 
             <TabsContent value="upcoming" className="space-y-4">
               {tournaments.filter(t => t.status === 'upcoming').map((tournament) => (
-                <Card key={tournament.id} className="border-secondary/50 bg-card/50 backdrop-blur-sm clip-corner">
+                <Card key={tournament.id} className="border-secondary/50 bg-card/50 backdrop-blur-sm clip-corner hologram">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div className="space-y-2">
@@ -496,8 +499,8 @@ const Index = () => {
             {teams
               .sort((a, b) => b.rating - a.rating)
               .map((team, idx) => (
-                <Card key={team.id} className={`border-border/50 bg-card/50 backdrop-blur-sm clip-corner hover:scale-[1.02] transition-transform ${
-                  idx === 0 ? 'border-primary glow-border' : ''
+                <Card key={team.id} className={`border-border/50 bg-card/50 backdrop-blur-sm clip-corner hover:scale-[1.02] transition-transform hologram ${
+                  idx === 0 ? 'border-primary glow-border scan-line' : ''
                 }`}>
                   <CardContent className="p-6">
                     <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
@@ -566,7 +569,7 @@ const Index = () => {
             <Icon name="Trophy" size={32} />
             ТУРНИРНАЯ СЕТКА
           </h3>
-          <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
+          <Card className="border-border/50 bg-card/50 backdrop-blur-sm scan-line">
             <CardContent className="p-8">
               <div className="space-y-8">
                 <div className="text-center">
@@ -667,7 +670,7 @@ const Index = () => {
             КОНТАКТЫ И ПОДДЕРЖКА
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm clip-corner">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm clip-corner hologram">
               <CardHeader>
                 <CardTitle className="text-xl font-black">Свяжитесь с нами</CardTitle>
                 <CardDescription>Ответим на все вопросы по турнирам</CardDescription>
@@ -697,7 +700,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-border/50 bg-card/50 backdrop-blur-sm clip-corner">
+            <Card className="border-border/50 bg-card/50 backdrop-blur-sm clip-corner hologram">
               <CardHeader>
                 <CardTitle className="text-xl font-black">Часто задаваемые вопросы</CardTitle>
               </CardHeader>
