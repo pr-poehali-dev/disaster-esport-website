@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 222 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 240 10% 3%;
+    --foreground: 280 20% 98%;
 
-    --card: 222 10% 6%;
-    --card-foreground: 0 0% 98%;
+    --card: 240 12% 6%;
+    --card-foreground: 280 15% 98%;
 
-    --popover: 222 10% 6%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 240 12% 6%;
+    --popover-foreground: 280 15% 98%;
 
-    --primary: 0 100% 60%;
+    --primary: 280 100% 70%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 15 100% 55%;
+    --secondary: 320 95% 65%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 222 10% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 280 10% 65%;
 
-    --accent: 190 100% 55%;
+    --accent: 180 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 222 10% 15%;
-    --input: 222 10% 15%;
-    --ring: 0 100% 60%;
+    --border: 280 30% 18%;
+    --input: 240 15% 10%;
+    --ring: 280 100% 70%;
 
-    --radius: 0.25rem;
+    --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -121,14 +121,23 @@
 
   .glow-border {
     box-shadow:
-      0 0 15px rgba(255, 0, 51, 0.5),
-      inset 0 0 15px rgba(255, 0, 51, 0.1);
+      0 0 20px rgba(192, 132, 252, 0.6),
+      0 0 40px rgba(192, 132, 252, 0.3),
+      inset 0 0 20px rgba(192, 132, 252, 0.15);
   }
 
   .glow-border-accent {
     box-shadow:
-      0 0 15px rgba(0, 217, 255, 0.5),
-      inset 0 0 15px rgba(0, 217, 255, 0.1);
+      0 0 20px rgba(236, 72, 153, 0.6),
+      0 0 40px rgba(236, 72, 153, 0.3),
+      inset 0 0 20px rgba(236, 72, 153, 0.15);
+  }
+
+  .glow-border-cyan {
+    box-shadow:
+      0 0 20px rgba(6, 182, 212, 0.6),
+      0 0 40px rgba(6, 182, 212, 0.3),
+      inset 0 0 20px rgba(6, 182, 212, 0.15);
   }
 
   .clip-corner {
@@ -173,10 +182,74 @@
   @keyframes pulse-glow {
     0%,
     100% {
-      box-shadow: 0 0 20px rgba(255, 0, 51, 0.4);
+      box-shadow:
+        0 0 30px rgba(192, 132, 252, 0.5),
+        0 0 60px rgba(192, 132, 252, 0.3);
     }
     50% {
-      box-shadow: 0 0 40px rgba(255, 0, 51, 0.8);
+      box-shadow:
+        0 0 50px rgba(192, 132, 252, 0.8),
+        0 0 100px rgba(192, 132, 252, 0.5);
     }
+  }
+
+  .animate-glow-secondary {
+    animation: glow-secondary 2s ease-in-out infinite;
+  }
+
+  @keyframes glow-secondary {
+    0%,
+    100% {
+      box-shadow:
+        0 0 30px rgba(236, 72, 153, 0.5),
+        0 0 60px rgba(236, 72, 153, 0.3);
+    }
+    50% {
+      box-shadow:
+        0 0 50px rgba(236, 72, 153, 0.8),
+        0 0 100px rgba(236, 72, 153, 0.5);
+    }
+  }
+
+  .hexagon-pattern {
+    background-image:
+      linear-gradient(
+        30deg,
+        rgba(192, 132, 252, 0.05) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(192, 132, 252, 0.05) 87.5%,
+        rgba(192, 132, 252, 0.05)
+      ),
+      linear-gradient(
+        150deg,
+        rgba(192, 132, 252, 0.05) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(192, 132, 252, 0.05) 87.5%,
+        rgba(192, 132, 252, 0.05)
+      ),
+      linear-gradient(
+        30deg,
+        rgba(192, 132, 252, 0.05) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(192, 132, 252, 0.05) 87.5%,
+        rgba(192, 132, 252, 0.05)
+      ),
+      linear-gradient(
+        150deg,
+        rgba(192, 132, 252, 0.05) 12%,
+        transparent 12.5%,
+        transparent 87%,
+        rgba(192, 132, 252, 0.05) 87.5%,
+        rgba(192, 132, 252, 0.05)
+      );
+    background-size: 80px 140px;
+    background-position:
+      0 0,
+      0 0,
+      40px 70px,
+      40px 70px;
   }
 }

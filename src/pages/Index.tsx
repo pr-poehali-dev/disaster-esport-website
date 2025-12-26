@@ -184,12 +184,12 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
-      <header className="border-b border-border/50 backdrop-blur-sm sticky top-0 z-50 glow-border">
+    <div className="min-h-screen bg-gradient-to-b from-background via-background to-muted/20 hexagon-pattern">
+      <header className="border-b border-primary/30 backdrop-blur-sm sticky top-0 z-50 glow-border bg-background/80">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary clip-corner flex items-center justify-center animate-pulse-glow">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary via-secondary to-accent clip-corner flex items-center justify-center animate-pulse-glow">
                 <Icon name="Swords" className="text-primary-foreground" size={24} />
               </div>
               <div>
@@ -298,10 +298,11 @@ const Index = () => {
       </header>
 
       <main className="container mx-auto px-4 py-12 space-y-16">
-        <section className="relative overflow-hidden rounded-lg border border-primary/30 glow-border">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/10 to-accent/20 animate-pulse" />
+        <section className="relative overflow-hidden rounded-lg border border-primary/40 glow-border">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary/20 to-accent/15" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(192,132,252,0.1),transparent_70%)]" />
           <div className="relative z-10 p-8 md:p-16 text-center space-y-6">
-            <h2 className="text-4xl md:text-6xl font-black text-primary text-neon glitch">
+            <h2 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent glitch">
               АРЕНА ЧЕМПИОНОВ
             </h2>
             <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto">
@@ -309,17 +310,17 @@ const Index = () => {
               Регистрируй команду, участвуй в турнирах и покоряй рейтинги!
             </p>
             <div className="flex flex-wrap gap-4 justify-center items-center">
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-primary/20">
+              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-primary/30 glow-border">
                 <Icon name="Trophy" className="text-primary" size={24} />
                 <span className="font-bold text-xl">{tournaments.length}</span>
                 <span className="text-muted-foreground">Турниров</span>
               </div>
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-secondary/20">
+              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-secondary/30 glow-border-accent">
                 <Icon name="Users" className="text-secondary" size={24} />
                 <span className="font-bold text-xl">{teams.length}</span>
                 <span className="text-muted-foreground">Команд</span>
               </div>
-              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-accent/20">
+              <div className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-6 py-3 rounded clip-corner border border-accent/30 glow-border-cyan">
                 <Icon name="Target" className="text-accent" size={24} />
                 <span className="font-bold text-xl">1.5M₽</span>
                 <span className="text-muted-foreground">Призовой фонд</span>
@@ -381,7 +382,7 @@ const Index = () => {
 
             <TabsContent value="live" className="space-y-4">
               {tournaments.filter(t => t.status === 'live').map((tournament) => (
-                <Card key={tournament.id} className="border-primary/50 bg-card/50 backdrop-blur-sm clip-corner animate-pulse-glow">
+                <Card key={tournament.id} className="border-primary/50 bg-gradient-to-br from-card/80 to-primary/5 backdrop-blur-sm clip-corner animate-pulse-glow">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div className="space-y-2">
